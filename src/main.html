@@ -4,8 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Generate-AI-task-s</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="index.js" defer>
 </head>
 <body>
-    
+    <header class="task__hedear">
+        <nav class="task__hedear__nav">
+            <span class="task__hedear__nav-span-h3">
+                <h3>Start study</h3>
+            </span>
+            <span class="task__hedear__nav-span-h1">
+                <h1>Generation IT task's </h1>
+            </span>
+        </nav>
+    </header>
+
+    <section class="task__menager">
+    <form action="/sumbit" method="POST">
+        <div class="task__menager-div">
+            <span class="task__menager-item-h1">
+                <h1>Генератор задач</h1>
+            </span>
+            <span class="task__menager-item-p">
+                <p>Условие задачи</p>
+            </span>
+            <div class="task__menager-item-input">
+                <input type="text" placeholder="Text">
+            </div>
+            <label for="progress">Выберите сложность:</label>
+            <div class="task__menager-progress-container">
+                <input type="range" min="1" max="3" id="progress">
+            </div>
+            <div class="task__menager-progress-container-levels">
+                <span>Легкая</span>
+                <span>Средняя</span>
+                <span>Сложная</span>
+            </div>
+            <button type="submit">Send</button>
+        </div>
+    </form>
+    </section>
 </body>
 </html>
