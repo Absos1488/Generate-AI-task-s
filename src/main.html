@@ -3,26 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Generate-AI-task-s</title>
+    <title>Generate AI task</title>
     <link rel="stylesheet" href="style/index.css">
-    <link rel="stylesheet" href="index.js" defer>
+    <script onerror="handleError()" src="index.js" defer></script>
 </head>
 <body>
-    <header class="task__hedear">
+    <header class="task__header">
+        <a href="#" class="task__header__logo-link">
+            <img src="image" alt="Логотип Generation IT Tasks">
+        </a>    
         <nav class="task__hedear__nav">
-            <h3>Start study</h3>
-            <span class="task__hedear__nav-span-h1">
-                <h1>Generation IT task's </h1>
-            </span>
+            <a href="#" class="task__hedear__nav-item">Start Learning</a>
         </nav>
+        <h1 class="task__header-h1">Generation IT Tasks</h1>
     </header>
 
     <section class="task__menager">
     <form action="/database-server" method="POST">
         <div class="task__menager-div">
-            <span class="task__menager-item-h1">
-                <h1>Генератор задач</h1>
-            </span>
+            <h1>Генератор задач</h1>
             <span class="task__menager-item-p">
                 <p>Условие задачи</p>
             </span>
@@ -38,7 +37,7 @@
                 <span>Средняя</span>
                 <span>Сложная</span>
             </div>
-            <button type="submit">Send</button>
+            <button type="submit" class="task__menager-progress-container-button" id="button">Send</button>
         </div>
     </form>
     </section>

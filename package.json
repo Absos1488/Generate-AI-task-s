@@ -16,5 +16,13 @@
   "bugs": {
     "url": "https://github.com/Absos1488/Generate-AI-task-s/issues"
   },
-  "homepage": "https://github.com/Absos1488/Generate-AI-task-s#readme"
+  "homepage": "https://github.com/Absos1488/Generate-AI-task-s#readme",
+  "devDependencies": {
+    "@eslint/js": "^9.36.0",
+    "eslint": "^9.36.0",
+    "globals": "^16.4.0",
+    "prettier": "^3.6.2",
+    "stylelint": "^16.24.0",
+    "stylelint-config-standard": "^39.0.0"
+  }
 }
