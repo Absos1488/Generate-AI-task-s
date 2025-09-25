@@ -1,0 +1,14 @@
+dist/
+build/
+
+node_modules/
+
+.env
+*.log
+*.tmp
+
+.vscode/
+*.sublime-workspace
+
+.DS_Store
+Thumbs.db
