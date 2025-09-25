@@ -1,6 +1,6 @@
-const button = document.getElementById("button");
+const button = document.getElementById("button")
 
 button.addEventListener("click", (event) => {
-    event.preventDefault();
-    return event.target;
-});
+  event.preventDefault()
+  return event.target
+})

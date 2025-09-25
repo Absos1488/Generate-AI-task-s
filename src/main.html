@@ -1,45 +1,51 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Generate AI task</title>
-    <link rel="stylesheet" href="style/index.css">
+    <link rel="stylesheet" href="style/index.css" />
     <script onerror="handleError()" src="index.js" defer></script>
-</head>
-<body>
+  </head>
+  <body>
     <header class="task__header">
-        <a href="#" class="task__header__logo-link">
-            <img src="image" alt="Логотип Generation IT Tasks">
-        </a>    
-        <nav class="task__hedear__nav">
-            <a href="#" class="task__hedear__nav-item">Start Learning</a>
-        </nav>
-        <h1 class="task__header-h1">Generation IT Tasks</h1>
+      <a href="#" class="task__header__logo-link">
+        <img src="image" alt="Логотип Generation IT Tasks" />
+      </a>
+      <nav class="task__hedear__nav">
+        <a href="#" class="task__hedear__nav-item">Start Learning</a>
+      </nav>
+      <h1 class="task__header-h1">Generation IT Tasks</h1>
     </header>
 
     <section class="task__menager">
-    <form action="/database-server" method="POST">
+      <form action="/database-server" method="POST">
         <div class="task__menager-div">
-            <h1>Генератор задач</h1>
-            <span class="task__menager-item-p">
-                <p>Условие задачи</p>
-            </span>
-            <div class="task__menager-item-input">
-                <input type="text" placeholder="Text">
-            </div>
-            <label for="progress">Выберите сложность:</label>
-            <div class="task__menager-progress-container">
-                <input type="range" min="1" max="3" id="progress">
-            </div>
-            <div class="task__menager-progress-container-levels">
-                <span>Легкая</span>
-                <span>Средняя</span>
-                <span>Сложная</span>
-            </div>
-            <button type="submit" class="task__menager-progress-container-button" id="button">Send</button>
+          <h1>Генератор задач</h1>
+          <span class="task__menager-item-p">
+            <p>Условие задачи</p>
+          </span>
+          <div class="task__menager-item-input">
+            <input type="text" placeholder="Text" />
+          </div>
+          <label for="progress">Выберите сложность:</label>
+          <div class="task__menager-progress-container">
+            <input type="range" min="1" max="3" id="progress" />
+          </div>
+          <div class="task__menager-progress-container-levels">
+            <span>Легкая</span>
+            <span>Средняя</span>
+            <span>Сложная</span>
+          </div>
+          <button
+            type="submit"
+            class="task__menager-progress-container-button"
+            id="button"
+          >
+            Send
+          </button>
         </div>
-    </form>
+      </form>
     </section>
-</body>
+  </body>
 </html>

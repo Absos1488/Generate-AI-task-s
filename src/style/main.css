@@ -1,8 +1,9 @@
-.task__header{
-    display: inline-flex;
-    justify-content: flex-start;
+.task__header {
+  display: inline-flex;
+  justify-content: flex-start;
 }
-.task__header__logo-link{
-    max-width: 40px;
-    max-height: 40px;
+
+.task__header__logo-link {
+  max-width: 40px;
+  max-height: 40px;
 }

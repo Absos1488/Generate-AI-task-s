@@ -28,18 +28,7 @@ body,
   Убираем внешние отступы вертикали нужным тегам,
   у которых есть атрибут class
  */
-:where(
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  p,
-  ul,
-  ol,
-  dl
-):where([class]) {
+:where(h1, h2, h3, h4, h5, h6, p, ul, ol, dl):where([class]) {
   margin-block: 0;
 }
 
@@ -79,10 +68,9 @@ p {
   Внешний отступ вниз для параграфа без атрибута class,
   который расположен не последним среди своих соседних элементов
  */
-p:where(:not([class]):not(:last-child)) {
+p:where(:not([class], :last-child)) {
   margin-bottom: var(--paragraphMarginBottom);
 }
-
 
 /**
   Упрощаем работу с изображениями и видео
@@ -110,11 +98,13 @@ html {
     (когда, например, нужно будет "прижать" футер к низу сайта)
    */
   height: 100%;
+
   /**
     Убираем скачок интерфейса по горизонтали
     при появлении / исчезновении скроллбара
    */
   scrollbar-gutter: stable;
+
   /**
     Плавный скролл
    */
@@ -127,6 +117,7 @@ body {
     (когда, например, нужно будет "прижать" футер к низу сайта)
    */
   min-height: 100%;
+
   /**
     Унифицированный интерлиньяж
    */
@@ -160,11 +151,8 @@ button {
   (за исключением тех, у которых уже указан
   атрибут fill со значением 'none' или начинается с 'url')
  */
-:where([fill]:not(
-  [fill="none"],
-  [fill^="url"]
-)) {
-  fill: currentColor;
+:where([fill]:not([fill="none"], [fill^="url"])) {
+  fill: currentcolor;
 }
 
 /**
@@ -172,11 +160,8 @@ button {
   (за исключением тех, у которых уже указан
   атрибут stroke со значением 'none')
  */
-:where([stroke]:not(
-  [stroke="none"],
-  [stroke^="url"]
-)) {
-  stroke: currentColor;
+:where([stroke]:not([stroke="none"], [stroke^="url"])) {
+  stroke: currentcolor;
 }
 
 /**
@@ -191,7 +176,7 @@ svg * {
  */
 :where(table) {
   border-collapse: collapse;
-  border-color: currentColor;
+  border-color: currentcolor;
 }
 
 /**
