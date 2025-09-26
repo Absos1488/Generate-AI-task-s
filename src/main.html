@@ -13,7 +13,7 @@
         <svg class="task__header__logo-link-item" xmlns="/src/style/icon/home_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.png" height="40px" viewBox="0 -960 960 960" width="40px" fill="#e3e3e3"><path d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z"/></svg>
       </a>
       <nav class="task__header__nav">
-        <a href="#" class="task__header__nav-item">Start Learning</a>
+        <a href="#" class="task__header__nav-item"><h4>Start Learning</h4></a>
       </nav>
       <h1 class="task__header-h1">Generation IT Tasks</h1>
     </header>
@@ -22,25 +22,24 @@
       <form action="/database-server" method="POST">
 
         <div class="task__menager-div">
-          <h1>Генератор задач</h1>
 
           <span class="task__menager-item-p">
-            <p>Условие задачи</p>
+            <h2>Problem Condition:</h2>
           </span>
 
           <div class="task__menager-item-input">
             <textarea class="task__menager-item-input-item" placeholder="Write text"></textarea>
           </div>
 
-          <label for="progress">Выберите сложность:</label>
+          <label for="progress">Select complexity:</label>
           <div class="task__menager-progress-container">
             <input class="task__menager-progress-container-item" type="range" min="1" max="3" id="progress" />
           </div>
 
           <div class="task__menager-progress-container-levels">
-            <span>Легкая</span>
-            <span>Средняя</span>
-            <span>Сложная</span>
+            <span>Easy</span>
+            <span>Midle</span>
+            <span>Hard</span>
           </div>
 
           <button
@@ -56,7 +55,7 @@
     
     <article class="task__article">
       <form action="data-base">
-        <h2>Ваше решение</h2>
+        <h2>Yours solution:</h2>
         <div class="task__article-div" >
           <textarea class="task__article-div-textarea" id="task-input" placeholder="Write code"></textarea>
         </div>

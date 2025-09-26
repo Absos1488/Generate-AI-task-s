@@ -6,9 +6,10 @@ button.addEventListener("click", (event) => {
   event.preventDefault()
 })
 
-navig.addEventListener("click", (event) => {
-  event.target.scrollIntoView({
+navig.addEventListener("click", () => {
+  fotter.scrollIntoView({
     behavior: "smooth",
+    block: "center",
   })
 })
 
@@ -19,5 +20,5 @@ fotter.addEventListener("click", (event) => {
 })
 
 function copyText(text) {
-
+  
 }

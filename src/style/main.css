@@ -10,23 +10,23 @@
 }
 
 .task__header__nav {
-  display: flex;
-  color: var(--color);
+  display: inline-flex;
   align-items: center;
 }
 
-.task__header__nav-item {
+.task__header__nav-item{
   position: relative;
+  margin-left: 1vh;
   font-weight: 30px;
+  align-items: center;
   text-decoration: none;
   color: var(--color-white);
   transition-duration: var(--transition-duration);
 
   &:hover {
-    box-shadow: 0px 0px 25px;
-    transform: scale(1.1);
     transition-duration: var(--transition-duration);
     color: var(--background-color3);
+    transform: scale(1.1);
   }
 }
 
@@ -35,7 +35,7 @@
   flex-grow: 1;
   padding-right: 21vh;
   color: var(--color);
-  font-family: "Courier New", Courier, monospace; /* Приоритет */
+  font-family: "Courier New", Courier, monospace;
 }
 
 .task__header__logo-link-item {
@@ -65,8 +65,8 @@
   transition-duration: var(--transition-duration);
   
   &hover{
-    transform:matrix3d(1.4);
     transition-duration: var(--transition-duration);
+    transform: scale(1.2);
   }
 }
 .task__menager-progress-container-item{
@@ -76,7 +76,7 @@
 .task__menager-progress-container-levels{
   display: flex;
   justify-content: center;
-  gap: 50px;
+  gap: 65px;
 }
 
 .task__article-div-textarea{
