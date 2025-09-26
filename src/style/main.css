@@ -1,98 +1,103 @@
 .task__header {
-    display: flex;
-    padding: 1vh;
-    height: 6.5vh;
-    background-color: var(--background-color2);
-    justify-content: start;
-    align-items: center;
-    width:100%;
-    position: relative;
+  display: flex;
+  padding: 1vh;
+  height: 6.5vh;
+  background-color: var(--background-color2);
+  justify-content: start;
+  align-items: center;
+  width: 100%;
+  position: relative;
 }
-.task__header__nav{
-    display: flex;
-    color: var(--color);
-    align-items: center;
-}
-.task__header__nav-item{
-    display: inline-block;
-    font-weight: 30px;
-    padding: 4px;
-    text-decoration: none;
-    color: var(--color-white);
-    transition-duration: var(--transition-duration);
 
-    &:hover{
+.task__header__nav {
+  display: flex;
+  color: var(--color);
+  align-items: center;
+}
+
+.task__header__nav-item {
+  display: inline-block;
+  font-weight: 30px;
+  padding: 4px;
+  text-decoration: none;
+  color: var(--color-white);
+  transition-duration: var(--transition-duration);
+
+  &:hover {
     transition-duration: var(--transition-duration);
     color: var(--color-white);
-    }
+  }
 }
+
 .task__header-h1 {
-    font-family: "SUSE Mono",monospace;
-    justify-content: center;
-    flex-grow: 1;
-    padding-right: 21vh;
-    color: var(--color);
-    font-family: 'Courier New', Courier, monospace; /* Приоритет */
+  justify-content: center;
+  flex-grow: 1;
+  padding-right: 21vh;
+  color: var(--color);
+  font-family: "Courier New", Courier, monospace; /* Приоритет */
 }
 
-.task__header__logo-link-item{
+.task__header__logo-link-item {
+  color: var(--color-white);
+  transition-duration: var(--transition-duration);
+
+  &:hover {
     color: var(--color-white);
     transition-duration: var(--transition-duration);
-    &:hover{
-        color: var(--color-white);
-        transition-duration: var(--transition-duration);
-    }
+  }
 }
 
+.task__article-div-textarea {
+  resize: none;
+  min-height: 50vh;
+  min-width: 50%;
+  position: static;
+  font-family: "SUSE Mono", monospace;
+  font-size: 16px;
+  line-height: 1.5;
+  padding: 10px;
+  overflow-x: auto;
+  transition-duration: var(--transition-duration);
 
-
-.task__article-div-textarea{
-    resize: none;
-    min-height: 50vh;
-    min-width: 50%;
-    position: static;
-    font-family: "SUSE Mono", monospace;
-    font-size: 16px;
-    line-height: 1.5;
-    padding: 10px;
-    overflow-x: auto;
+  &:hover {
+    transform: scale(1.05);
     transition-duration: var(--transition-duration);
-    &:hover{
-        transform: scale(1.05);
-        transition-duration: var(--transition-duration);
-    }
-
-}
-.task__footer{
-    margin-top: 3vh;
-    justify-content: center;
-    background-color: var(--background-color2);
-}
-.task__footer-div{
-    display: flex;
-    justify-content: center;
-    padding: 1.7vh;
-    position: relative;
-    flex-grow: 3;
-    
+  }
 }
 
-.task__footer-div-list-info{
-    display: inline-flex;
-    align-items: center;
+.task__footer {
+  margin-top: 3vh;
+  justify-content: center;
+  background-color: var(--background-color2);
 }
-.task__footer-div-list-item{
-    padding: 6px;
+
+.task__footer-div {
+  display: flex;
+  justify-content: center;
+  padding: 1.7vh;
+  position: relative;
+  flex-grow: 3;
+}
+
+.task__footer-div-list-info {
+  display: inline-flex;
+  align-items: center;
+}
+
+.task__footer-div-list-item {
+  padding: 6px;
+  transition-duration: var(--transition-duration);
+  border: 1px solid var(--background-color2);
+  border-radius: 20px;
+
+  &:hover {
+    transform: scale(1.2);
     transition-duration: var(--transition-duration);
-    border: 1px solid var(--background-color2);
-    border-radius: 20px;
-    &:hover{
-        transform: scale(1.2);
-        transition-duration: var(--transition-duration);
-        background-color: var(--background-color1);
-    }
+    background-color: var(--background-color1);
+  }
 }
-.task__footer-div-list-item>a{
-    text-decoration: none;
-    color: var(--color-white);
+
+.task__footer-div-list-item > a {
+  text-decoration: none;
+  color: var(--color-white);
 }
