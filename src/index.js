@@ -15,10 +15,12 @@ navig.addEventListener("click", () => {
 
 fotter.addEventListener("click", (event) => {
   const item = event.target
-  if(item) copyText(item);
+  if (item) {
+    copyText(item)
+  }
   return
 })
 
 function copyText(text) {
-  
+  return text
 }
