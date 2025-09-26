@@ -4,8 +4,11 @@
 
   --color-blue: rgb(0, 102, 255);
   --color-dark: rgb(0,0,0);
-  --color-white: rgb(255, 255, 255);
-  --background-color: rgb(162, 162, 162);
+  --color-white: rgb(238, 238, 238);
+
+  --background-color1: rgb(34, 40, 49);
+  --background-color2: rgb(57, 62, 70);
+  --background-color3: rgb(0, 173, 181);
   
   --transition-duration: 0.3s ;
 }

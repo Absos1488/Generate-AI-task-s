@@ -2,7 +2,7 @@
     display: flex;
     padding: 1vh;
     height: 6.5vh;
-    background-color: var(--background-color);
+    background-color: var(--background-color2);
     justify-content: start;
     align-items: center;
     width:100%;
@@ -14,11 +14,11 @@
     align-items: center;
 }
 .task__header__nav-item{
-    font-family:'Courier New', Courier, monospace;
+    display: inline-block;
     font-weight: 30px;
     padding: 4px;
     text-decoration: none;
-    color: var(--color);
+    color: var(--color-white);
     transition-duration: var(--transition-duration);
 
     &:hover{
@@ -27,6 +27,7 @@
     }
 }
 .task__header-h1 {
+    font-family: "SUSE Mono",monospace;
     justify-content: center;
     flex-grow: 1;
     padding-right: 21vh;
@@ -35,7 +36,7 @@
 }
 
 .task__header__logo-link-item{
-    color: var(--color-dark);
+    color: var(--color-white);
     transition-duration: var(--transition-duration);
     &:hover{
         color: var(--color-white);
@@ -48,9 +49,7 @@
 .task__article-div-textarea{
     resize: none;
     min-height: 50vh;
-    max-height: 50vh;
-    min-width: 80%;
-    max-width: 90%;
+    min-width: 50%;
     position: static;
     font-family: "SUSE Mono", monospace;
     font-size: 16px;
@@ -63,4 +62,37 @@
         transition-duration: var(--transition-duration);
     }
 
+}
+.task__footer{
+    margin-top: 3vh;
+    justify-content: center;
+    background-color: var(--background-color2);
+}
+.task__footer-div{
+    display: flex;
+    justify-content: center;
+    padding: 1.7vh;
+    position: relative;
+    flex-grow: 3;
+    
+}
+
+.task__footer-div-list-info{
+    display: inline-flex;
+    align-items: center;
+}
+.task__footer-div-list-item{
+    padding: 6px;
+    transition-duration: var(--transition-duration);
+    border: 1px solid var(--background-color2);
+    border-radius: 20px;
+    &:hover{
+        transform: scale(1.2);
+        transition-duration: var(--transition-duration);
+        background-color: var(--background-color1);
+    }
+}
+.task__footer-div-list-item>a{
+    text-decoration: none;
+    color: var(--color-white);
 }
