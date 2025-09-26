@@ -16,16 +16,17 @@
 }
 
 .task__header__nav-item {
-  display: inline-block;
+  position: relative;
   font-weight: 30px;
-  padding: 4px;
   text-decoration: none;
   color: var(--color-white);
   transition-duration: var(--transition-duration);
 
   &:hover {
+    box-shadow: 0px 0px 25px;
+    transform: scale(1.1);
     transition-duration: var(--transition-duration);
-    color: var(--color-white);
+    color: var(--background-color3);
   }
 }
 
@@ -46,8 +47,39 @@
     transition-duration: var(--transition-duration);
   }
 }
+.task__menager{
+  display: inline-flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  min-height: 50vh;
+  min-width: 100vh;
+}
+.task__menager-item{
+  min-height: 1000px;
+}
+.task__menager-item-input-item{
+  resize: none;
+  min-height: 30vh;
+  min-width: 60vh;
+  transition-duration: var(--transition-duration);
+  
+  &hover{
+    transform:matrix3d(1.4);
+    transition-duration: var(--transition-duration);
+  }
+}
+.task__menager-progress-container-item{
+  min-width: 30vh;
+}
 
-.task__article-div-textarea {
+.task__menager-progress-container-levels{
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+
+.task__article-div-textarea{
   resize: none;
   min-height: 50vh;
   min-width: 50%;
@@ -84,20 +116,36 @@
   align-items: center;
 }
 
-.task__footer-div-list-item {
+.task__footer-div-list-item a {
   padding: 6px;
   transition-duration: var(--transition-duration);
-  border: 1px solid var(--background-color2);
   border-radius: 20px;
+  border: 1px var(--background-color2);
+  color: var(--color-white);
+  text-decoration: none;
 
   &:hover {
     transform: scale(1.2);
     transition-duration: var(--transition-duration);
     background-color: var(--background-color1);
+    color: var(--background-color3);
   }
 }
 
-.task__footer-div-list-item > a {
-  text-decoration: none;
-  color: var(--color-white);
+button {
+  padding: 10px 20px 10px 20px;
+  margin-top: 2vh;
+  background-color: var(--background-color2);
+  border-radius: 5px;
+  border-style: none;
+  transition-duration: var(--transition-duration);
+
+  &:hover{
+    color: var(--color-white);
+    padding: 10px 30px 10px 30px;
+    background-color: var(--background-color3);
+    box-shadow: 0px 0px 45px;
+    transition-duration: var(--transition-duration);
+  }
 }
+
