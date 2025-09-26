@@ -7,36 +7,42 @@
     <link rel="stylesheet" href="style/index.css" />
     <script onerror="handleError()" src="index.js" defer></script>
   </head>
-  <body>
+
     <header class="task__header">
       <a href="#" class="task__header__logo-link">
-        <img src="image" alt="Логотип Generation IT Tasks" />
+        <svg class="task__header__logo-link-item" xmlns="/src/style/icon/home_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.png" height="40px" viewBox="0 -960 960 960" width="40px" fill="#e3e3e3"><path d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z"/></svg>
       </a>
-      <nav class="task__hedear__nav">
-        <a href="#" class="task__hedear__nav-item">Start Learning</a>
+      <nav class="task__header__nav">
+        <a href="#" class="task__header__nav-item">Start Learning</a>
       </nav>
       <h1 class="task__header-h1">Generation IT Tasks</h1>
     </header>
 
     <section class="task__menager">
       <form action="/database-server" method="POST">
+
         <div class="task__menager-div">
           <h1>Генератор задач</h1>
+
           <span class="task__menager-item-p">
             <p>Условие задачи</p>
           </span>
+
           <div class="task__menager-item-input">
             <input type="text" placeholder="Text" />
           </div>
+
           <label for="progress">Выберите сложность:</label>
           <div class="task__menager-progress-container">
             <input type="range" min="1" max="3" id="progress" />
           </div>
+
           <div class="task__menager-progress-container-levels">
             <span>Легкая</span>
             <span>Средняя</span>
             <span>Сложная</span>
           </div>
+
           <button
             type="submit"
             class="task__menager-progress-container-button"
@@ -47,5 +53,25 @@
         </div>
       </form>
     </section>
+    
+    <article class="task__article">
+      <form action="data-base">
+        <h2>Ваше решение</h2>
+        <div class="task__article-div" >
+          <textarea class="task__article-div-textarea" id="task-input" placeholder="Write code"></textarea>
+        </div>
+        <button type="submit">Send</button>
+      </form>
+    </article>
+
+    <footer class="task__footer">
+      <div class="task__footer-div">
+        <ul class="task__footer-div-list">
+          <li class="task__footer-div-list-item"><a href="#">London</a></li>
+          <li class="task__footer-div-list-item"><a href="#">+7978888123</a></li>
+        </ul>
+      </div>
+    </footer>
+
   </body>
 </html>

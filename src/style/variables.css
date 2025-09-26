@@ -1,4 +1,11 @@
 :root {
-  --color: rgb(40 147 255);
-  --transition-duration: 0, 2s;
+  --height: 40px;
+  --weidth: 40px;
+
+  --color-blue: rgb(0, 102, 255);
+  --color-dark: rgb(0,0,0);
+  --color-white: rgb(255, 255, 255);
+  --background-color: rgb(162, 162, 162);
+  
+  --transition-duration: 0.3s ;
 }
