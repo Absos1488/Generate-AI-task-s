@@ -13,14 +13,14 @@ navig.addEventListener("click", () => {
   })
 })
 
-fotter.addEventListener("click", (event) => {
-  const item = event.target
-  if (item) {
-    copyText(item)
-  }
-  return
-})
-
-function copyText(text) {
-  return text
-}
+document
+  .querySelector(".task__footer-div-list")
+  .addEventListener("click", (e) => {
+    const item = e.target.closest(".task__footer-div-list")
+    if (!item) {
+      throw new Error("no")
+    }
+    navigator.clipboard.writeText(e.target.text)
+  })
+  .then((mes) => console.log(`you copied ${mes}`))
+  .catch((e) => console.error("error:", e))
