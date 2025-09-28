@@ -161,22 +161,22 @@ button {
   }
 }
 
-.task__article-div{
+.task__article-div {
   display: flex;
   justify-content: center;
 }
 
-.task__article-div-select{
+.task__article-div-select {
   display: inline-flex;
   align-items: flex-start;
   margin-bottom: 2%;
   transition-duration: var(--transition-duration);
   background-color: var(--background-color2);
 
-  &:hover{
+  &:hover {
     color: var(--background-color3);
     transition-duration: var(--transition-duration);
     background-color: var(--background-color2);
-    box-shadow: 0px 0px 15px 5px;
+    box-shadow: 0 0 15px 5px;
   }
 }
