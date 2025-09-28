@@ -63,10 +63,10 @@ async function sendRequest(event) {
     })
 
     const data = await response.json()
-    const [result1, result2] = data
+    const [result1, result2, hard] = data
 
     if (response.ok) {
-      form1.textContent = result1
+      ;((form1.textContent = result1), hard)
       form2.textContent = result2
     }
     form1.textContent = `Error: ${data.message || "Error"}`
