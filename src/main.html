@@ -19,7 +19,7 @@
     </header>
 
     <section class="task__menager">
-      <form action="/database-server" method="POST" class="task__menager-form">
+      <form id="task__menager-form" action="/database-server" method="POST" class="task__menager-form">
 
         <div class="task__menager-div">
 
@@ -28,7 +28,7 @@
           </span>
 
           <div class="task__menager-item-input">
-            <textarea class="task__menager-item-input-item" placeholder="Write text"></textarea>
+            <textarea name="input1" class="task__menager-item-input-item" placeholder="Write text"></textarea>
           </div>
 
           <label for="progress">Select complexity:</label>
@@ -54,10 +54,10 @@
     </section>
     
     <article class="task__article">
-      <form action="data-base">
+      <form action="data-base" id="task__article-form">
         <h2>Yours solution:</h2>
         <div class="task__article-div" >
-          <textarea class="task__article-div-textarea" id="task-input" placeholder="Write code"></textarea>
+          <textarea name="input2" class="task__article-div-textarea" id="task-input" placeholder="Write code"></textarea>
         </div>
         <button id="button" type="submit" class="task__article-div-textarea-button">Send</button>
       </form>

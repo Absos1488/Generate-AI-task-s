@@ -57,10 +57,14 @@
   min-width: 100%;
 }
 
+.task__menager-form {
+  min-width: 100%;
+}
+
 .task__menager-item-input-item {
   resize: none;
   min-height: 30vh;
-  min-width: 100%;
+  min-width: 50%;
   transition-duration: var(--transition-duration);
 
   &:hover {
