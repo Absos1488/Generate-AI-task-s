@@ -38,7 +38,7 @@ async function sendRequest(event) {
   const inputText2 = formData2.get("input2")
 
   if (inputText.length > 1000) {
-    form1.innerText = "Запрос слишком длинный"
+    form1.textContent = "Запрос слишком длинный"
     return
   }
   if (!inputText && !inputText2) {
