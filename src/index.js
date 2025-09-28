@@ -33,10 +33,8 @@ form2.addEventListener("click", (e) => {
 
 async function sendRequest(event) {
   event.preventDefault()
-  const formData = new FormData(form1)
-  const formData2 = new FormData(form2)
-  const inputText = formData.get("input1")
-  const inputText2 = formData2.get("input2")
+  const inputText = form1.get("input1")
+  const inputText2 = form2.get("input2")
   const harders = harder.value
 
   if (inputText.length > 1000) {

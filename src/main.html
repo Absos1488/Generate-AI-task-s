@@ -7,10 +7,22 @@
     <link rel="stylesheet" href="style/index.css" />
     <script onerror="handleError()" src="index.js" defer></script>
   </head>
+  <body>
 
     <header class="task__header">
       <a href="#" class="task__header__logo-link">
-        <svg class="task__header__logo-link-item" xmlns="/src/style/icon/home_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.png" height="40px" viewBox="0 -960 960 960" width="40px" fill="#e3e3e3"><path d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z"/></svg>
+        <svg
+          class="task__header__logo-link-item"
+          xmlns="/src/style/icon/home_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.png"
+          height="40px"
+          viewBox="0 -960 960 960"
+          width="40px"
+          fill="#e3e3e3"
+        >
+          <path
+            d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z"
+          />
+        </svg>
       </a>
       <nav class="task__header__nav">
         <a href="#" class="task__header__nav-item"><h4>Start Learning</h4></a>
@@ -19,21 +31,37 @@
     </header>
 
     <section class="task__menager">
-      <form id="task__menager-form" action="/database-server" method="POST" class="task__menager-form">
-
+      <form
+        id="task__menager-form"
+        action="/database-server"
+        method="POST"
+        class="task__menager-form"
+      >
         <div class="task__menager-div">
-
           <span class="task__menager-item-p">
             <h2>Problem Condition:</h2>
           </span>
 
           <div class="task__menager-item-input">
-            <textarea name="input1" class="task__menager-item-input-item" placeholder="Write text"></textarea>
+            <textarea
+              name="input1"
+              class="task__menager-item-input-item"
+              placeholder="Write text"
+            ></textarea>
           </div>
 
           <label for="progress">Select complexity:</label>
           <div class="task__menager-progress-container">
-            <input placeholder="hardest range" id="harder" class="task__menager-progress-container-item" type="range" min="1" max="3" value="2" name="progress" />
+            <input
+              placeholder="hardest range"
+              id="harder"
+              class="task__menager-progress-container-item"
+              type="range"
+              min="1"
+              max="3"
+              value="2"
+              name="progress"
+            />
           </div>
 
           <div class="task__menager-progress-container-levels">
@@ -52,14 +80,43 @@
         </div>
       </form>
     </section>
-    
+
     <article class="task__article">
       <form action="data-base" id="task__article-form">
         <h2>Yours solution:</h2>
-        <div class="task__article-div" >
-          <textarea name="input2" class="task__article-div-textarea" id="task-input" placeholder="Write code"></textarea>
+        <select
+          class="task__article-div-select"
+          name="select"
+          title="section"
+          id="select"
+          onchange="changeLanguage(this.value)"
+        >
+          <option value="javascript">JavaScript</option>
+          <option value="python">Python</option>
+          <option value="htmlmixed">HTML</option>
+          <option value="css">CSS</option>
+          <option value="php">PHP</option>
+          <option value="java">Java</option>
+          <option value="cpp">C++</option>
+          <option value="sql">SQL</option>
+          <option value="ruby">Ruby</option>
+          <option value="xml">XML</option>
+        </select>
+        <div class="task__article-div">
+          <textarea
+            name="input2"
+            class="task__article-div-textarea"
+            id="task-input"
+            placeholder="Write code"
+          ></textarea>
         </div>
-        <button id="button" type="submit" class="task__article-div-textarea-button">Send</button>
+        <button
+          id="button"
+          type="submit"
+          class="task__article-div-textarea-button"
+        >
+          Send
+        </button>
       </form>
     </article>
 
@@ -67,12 +124,17 @@
       <div class="task__footer-div">
         <ul class="task__footer-div-list" id="list">
           <li class="task__footer-div-list-info"><h2>info</h2></li>
-          <li class="task__footer-div-list-item"><a href="#">Sity: London</a></li>
-          <li class="task__footer-div-list-item"><a href="#">Telephone: +7978888123</a></li>
-          <li class="task__footer-div-list-item"><a href="#">email: generationAI@gmail.com</a></li>
+          <li class="task__footer-div-list-item">
+            <a href="#">Sity: London</a>
+          </li>
+          <li class="task__footer-div-list-item">
+            <a href="#">Telephone: +7978888123</a>
+          </li>
+          <li class="task__footer-div-list-item">
+            <a href="#">email: generationAI@gmail.com</a>
+          </li>
         </ul>
       </div>
     </footer>
-
   </body>
 </html>
