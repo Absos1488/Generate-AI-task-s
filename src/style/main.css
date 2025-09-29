@@ -22,12 +22,12 @@
   text-decoration: none;
   color: var(--color-white);
   transition-duration: var(--transition-duration);
+}
 
-  &:hover {
-    transition-duration: var(--transition-duration);
-    color: var(--background-color3);
-    transform: scale(1.1);
-  }
+.task__header__nav-item:hover {
+  transition-duration: var(--transition-duration);
+  color: var(--background-color3);
+  transform: scale(1.1);
 }
 
 .task__header-h1 {
@@ -41,12 +41,12 @@
 .task__header__logo-link-item {
   color: var(--color-white);
   transition-duration: var(--transition-duration);
+}
 
-  &:hover {
-    color: var(--background-color3);
-    transform: scale(1.1);
-    transition-duration: var(--transition-duration);
-  }
+.task__header__logo-link-item:hover {
+  color: var(--background-color3);
+  transform: scale(1.1);
+  transition-duration: var(--transition-duration);
 }
 
 .task__menager {
@@ -66,11 +66,11 @@
   min-height: 30vh;
   min-width: 50%;
   transition-duration: var(--transition-duration);
+}
 
-  &:hover {
-    transition-duration: var(--transition-duration);
-    transform: scale(1.05);
-  }
+.task__menager-item-input-item:hover {
+  transition-duration: var(--transition-duration);
+  transform: scale(1.05);
 }
 
 .task__menager-progress-container-item {
@@ -94,11 +94,11 @@
   padding: 10px;
   overflow-x: auto;
   transition-duration: var(--transition-duration);
+}
 
-  &:hover {
-    transform: scale(1.05);
-    transition-duration: var(--transition-duration);
-  }
+.task__article-div-textarea:hover {
+  transform: scale(1.05);
+  transition-duration: var(--transition-duration);
 }
 
 .task__footer {
@@ -128,14 +128,14 @@
   border: 1px var(--background-color2);
   color: var(--color-white);
   text-decoration: none;
+}
 
-  &:hover {
-    transform: scale(1.2);
-    box-shadow: 0 0 20px 5px;
-    transition-duration: var(--transition-duration);
-    background-color: var(--background-color1);
-    color: var(--background-color3);
-  }
+.task__footer-div-list-item a:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 20px 5px;
+  transition-duration: var(--transition-duration);
+  background-color: var(--background-color1);
+  color: var(--background-color3);
 }
 
 button {
@@ -145,14 +145,14 @@ button {
   border-radius: 5px;
   border-style: none;
   transition-duration: var(--transition-duration);
+}
 
-  &:hover {
-    color: var(--color-white);
-    padding: 10px 30px;
-    background-color: var(--background-color3);
-    box-shadow: 0 0 10px 5px;
-    transition-duration: var(--transition-duration);
-  }
+button:hover {
+  color: var(--color-white);
+  padding: 10px 30px;
+  background-color: var(--background-color3);
+  box-shadow: 0 0 10px 5px;
+  transition-duration: var(--transition-duration);
 }
 
 @media (width <= 750px) {
@@ -172,11 +172,11 @@ button {
   margin-bottom: 2%;
   transition-duration: var(--transition-duration);
   background-color: var(--background-color2);
+}
 
-  &:hover {
-    color: var(--background-color3);
-    transition-duration: var(--transition-duration);
-    background-color: var(--background-color2);
-    box-shadow: 0 0 15px 5px;
-  }
+.task__article-div-select:hover {
+  color: var(--background-color3);
+  transition-duration: var(--transition-duration);
+  background-color: var(--background-color2);
+  box-shadow: 0 0 15px 5px;
 }

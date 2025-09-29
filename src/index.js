@@ -1,25 +1,41 @@
-const navig = document.querySelector(".task__header__nav-item")
-const fotter = document.querySelector(".task__footer-div-list")
-const form1 = document.getElementById("task__menager-form")
-const form2 = document.getElementById("task__article-form")
-const harder = document.getElementById("harder")
-const textarea1 = document.getElementById("menager-input")
-const textarea2 = document.getElementById("task-input")
-const select = document.getElementById("select")
+// Инициализация после загрузки DOM
+document.addEventListener("DOMContentLoaded", function() {
+  // Проверяем существование элементов
+  const navig = document.querySelector(".task__header__nav-item")
+  const fotter = document.querySelector(".task__footer-div-list")
+  const form1 = document.getElementById("task__menager-form")
+  const form2 = document.getElementById("task__article-form")
+  const harder = document.getElementById("harder")
+  const textarea1 = document.getElementById("menager-input")
+  const textarea2 = document.getElementById("task-input")
+  const select = document.getElementById("select")
 
-navig.addEventListener("click", () => {
-  fotter.scrollIntoView({
-    behavior: "smooth",
-    block: "center",
+  // Проверяем, что все основные элементы найдены
+  if (!textarea2) {
+    console.error("CodeMirror textarea not found!")
+    return
+  }
+
+  // Инициализация CodeMirror
+  const editor = CodeMirror.fromTextArea(textarea2, {
+    mode: "javascript",
+    theme: "monokai",
+    lineNumbers: true,
+    autoCloseBrackets: true,
   })
-})
 
-const editor = CodeMirror.fromTextArea(document.getElementById("task-input"), {
-  mode: "javascript",
-  theme: "monokai",
-  lineNumbers: true,
-  autoCloseBrackets: true,
-})
+  // Делаем editor глобальным для использования в других функциях
+  window.codeEditor = editor
+
+  // Navigation click handler
+  if (navig && fotter) {
+    navig.addEventListener("click", () => {
+      fotter.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      })
+    })
+  }
 
 function changeLanguage(language) {
   const modeMap = {
@@ -34,86 +50,157 @@ function changeLanguage(language) {
     ruby: "ruby",
     xml: "xml",
   }
-  editor.setOption("mode", modeMap[language])
+  if (window.codeEditor) {
+    window.codeEditor.setOption("mode", modeMap[language])
+  }
 }
 
-textarea2.addEventListener("keydown", (e) => {
-  if (e.key === "Tab") {
-    e.preventDefault()
-    const start = e.target.selectionStart
-    const end = e.target.selectionEnd
-    e.target.value =
-      e.target.value.substring(0, start) + "  " + e.target.value.substring(end)
-    e.target.selectionStart = e.target.selectionEnd = start + 2
+  // Tab handling больше не нужен для CodeMirror (он делает это автоматически)
+
+  // Обработчик для textarea1
+  if (textarea1) {
+    textarea1.addEventListener("input", () => {
+      setTimeout(() => {
+        localStorage.setItem("promt", textarea1.value)
+      }, 500)
+    })
   }
-})
 
-textarea1.addEventListener("input", () => {
-  setTimeout(() => {
-    localStorage.setItem("promt", textarea1.value)
-  }, 500)
-})
+  // Интеграция с CodeMirror для автосохранения
+  if (editor) {
+    editor.on("change", () => {
+      setTimeout(() => {
+        localStorage.setItem("code", editor.getValue())
+      }, 500)
+    })
+  }
 
-textarea2.addEventListener("input", () => {
-  setTimeout(() => {
-    localStorage.setItem("code", textarea2.value)
-  }, 500)
-})
+  // Обработчик изменения языка
+  if (select) {
+    select.addEventListener("change", () => {
+      localStorage.setItem("selectedLanguage", select.value)
+      if (window.codeEditor) {
+        changeLanguage(select.value)
+      }
+    })
+  }
 
-select.addEventListener("change", () => {
-  localStorage.setItem("selectedLanguage", select.value)
-})
-
-window.addEventListener("load", () => {
+  // Восстановление сохраненных данных
   const savedPrompt = localStorage.getItem("promt")
   const savedCode = localStorage.getItem("code")
   const savedLanguage = localStorage.getItem("selectedLanguage")
 
-  savedPrompt ? (textarea1.value = savedPrompt) : null
-  savedCode ? (textarea2.value = savedCode) : null
-  savedLanguage ? select.value & changeLanguage(savedLanguage) : null
-})
+  if (savedPrompt && textarea1) {
+    textarea1.value = savedPrompt
+  }
+  if (savedCode && editor) {
+    editor.setValue(savedCode)
+  }
+  if (savedLanguage && select) {
+    select.value = savedLanguage
+    changeLanguage(savedLanguage)
+  }
 
+  // Footer click handler с проверкой существования
+  const footerList = document.querySelector(".task__footer-div-list")
+  if (footerList) {
+    footerList.addEventListener("click", async (e) => {
+      try {
+        const item = e.target.closest(".task__footer-div-list-item")
+        if (!item) {
+          console.warn("Clicked outside of footer item")
+          return
+        }
+        
+        const textToCopy = e.target.textContent || e.target.innerText
+        await navigator.clipboard.writeText(textToCopy)
+        console.log(`You copied: ${textToCopy}`)
+      } catch (error) {
+        console.error("Copy failed:", error)
+      }
+    })
+  }
 
-document
-  .querySelector(".task__footer-div-list")
-  .addEventListener("click", (e) => {
-    const item = e.target.closest(".task__footer-div-list")
-    if (!item) {
-      throw new Error("no")
-    }
-    navigator.clipboard.writeText(e.target.text)
-  })
-  .then((mes) => console.log(`you copied ${mes}`))
-  .catch((e) => console.error("error:", e))
+  // Form submit handlers
+  if (form1) {
+    form1.addEventListener("submit", (e) => {
+      sendRequest(e)
+    })
+  }
 
-form1.addEventListener("click", (e) => {
-  sendRequest(e)
-})
+  if (form2) {
+    form2.addEventListener("submit", (e) => {
+      sendRequest(e)
+    })
+  }
 
-form2.addEventListener("click", (e) => {
-  sendRequest(e)
-})
+}) // Закрытие DOMContentLoaded
+
+function showError(element, message) {
+  const errorDiv = document.createElement('div')
+  errorDiv.className = 'error-message'
+  errorDiv.style.color = 'red'
+  errorDiv.style.marginTop = '10px'
+  errorDiv.textContent = message
+  element.parentElement.appendChild(errorDiv)
+  
+  setTimeout(() => errorDiv.remove(), 5000)
+}
+
+function clearErrors(element) {
+  const errors = element.parentElement.querySelectorAll('.error-message')
+  errors.forEach(error => error.remove())
+}
 
 async function sendRequest(event) {
   event.preventDefault()
-  const inputText = form1.get("input1")
-  const inputText2 = form2.get("input2")
+  
+  // Получаем данные правильным способом с проверками
+  const textarea1 = document.getElementById("menager-input")
+  const harder = document.getElementById("harder")
+  
+  if (!textarea1 || !harder || !window.codeEditor) {
+    console.error("Required elements not found")
+    return
+  }
+  
+  const inputText = textarea1.value.trim()
+  const inputText2 = window.codeEditor.getValue().trim()
   const harders = harder.value
 
-  if (inputText.length > 1000) {
-    form1.textContent = "Запрос слишком длинный"
+  // Очищаем предыдущие ошибки с проверками
+  const form1 = document.getElementById("task__menager-form")
+  const form2 = document.getElementById("task__article-form")
+  
+  if (form1) clearErrors(form1)
+  if (form2) clearErrors(form2)
+
+  // Валидация первого поля
+  if (!inputText || inputText === '') {
+    showError(form1, "Пожалуйста, введите условие задачи")
     return
   }
-  if (!inputText && !inputText2) {
-    form1.textContent = "Please, write prompt"
-    form2.textContent = "Write your solution"
+  if (inputText.length > 1000) {
+    showError(form1, "Условие задачи слишком длинное (максимум 1000 символов)")
     return
   }
 
-  form1.textContent = "Loading..."
+  // Валидация второго поля (опционально)
+  if (inputText2 && inputText2.length > 5000) {
+    showError(form2, "Код решения слишком длинный (максимум 5000 символов)")
+    return
+  }
+
+  // Показываем индикатор загрузки
+  const loadingDiv = document.createElement('div')
+  loadingDiv.className = 'loading-message'
+  loadingDiv.textContent = 'Loading...'
+  form1.parentElement.appendChild(loadingDiv)
 
   try {
+    const controller = new AbortController()
+    const timeoutId = setTimeout(() => controller.abort(), 10000) // 10 секунд таймаут
+    
     const response = await fetch("/api/neural/query", {
       method: "POST",
       headers: {
@@ -124,19 +211,53 @@ async function sendRequest(event) {
         input2: inputText2,
         hard: harders,
       }),
+      signal: controller.signal
     })
+    
+    clearTimeout(timeoutId)
+    loadingDiv.remove()
+
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}: ${response.statusText}`)
+    }
 
     const data = await response.json()
-    const [result1, result2, hard] = data
+    const [result1, result2] = Array.isArray(data) ? data : [data.task, data.solution]
 
-    if (response.ok) {
-      ;((form1.textContent = result1), hard)
-      form2.textContent = result2
+    // Отображаем результаты
+    const resultContainer1 = document.createElement('div')
+    resultContainer1.className = 'result-container'
+    resultContainer1.style.marginTop = '20px'
+    resultContainer1.style.padding = '15px'
+    resultContainer1.style.border = '1px solid #ccc'
+    resultContainer1.style.borderRadius = '5px'
+    resultContainer1.textContent = result1 || 'Задача сгенерирована'
+    
+    const resultContainer2 = document.createElement('div')
+    resultContainer2.className = 'result-container'
+    resultContainer2.style.marginTop = '20px'
+    resultContainer2.style.padding = '15px'
+    resultContainer2.style.border = '1px solid #ccc'
+    resultContainer2.style.borderRadius = '5px'
+    resultContainer2.textContent = result2 || 'Решение получено'
+    
+    // Удаляем предыдущие результаты
+    form1.parentElement.querySelectorAll('.result-container').forEach(el => el.remove())
+    form2.parentElement.querySelectorAll('.result-container').forEach(el => el.remove())
+    
+    // Добавляем новые результаты
+    form1.parentElement.appendChild(resultContainer1)
+    form2.parentElement.appendChild(resultContainer2)
+
+  } catch (error) {
+    loadingDiv.remove()
+    
+    if (error.name === 'AbortError') {
+      showError(form1, 'Время ожидания истекло. Попробуйте еще раз.')
+    } else if (error.name === 'TypeError') {
+      showError(form1, 'Проблема с подключением к интернету')
+    } else {
+      showError(form1, `Ошибка: ${error.message}`)
     }
-    form1.textContent = `Error: ${data.message || "Error"}`
-    form2.textContent = `Error: ${data.message || "Error"}`
-  } catch (err) {
-    form1.textContent = `Error: ${err.message}`
-    form2.textContent = `Error: ${err.message}`
   }
 }
