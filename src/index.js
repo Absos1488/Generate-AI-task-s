@@ -3,6 +3,9 @@ const fotter = document.querySelector(".task__footer-div-list")
 const form1 = document.getElementById("task__menager-form")
 const form2 = document.getElementById("task__article-form")
 const harder = document.getElementById("harder")
+const textarea1 = document.getElementById("menager-input")
+const textarea2 = document.getElementById("task-input")
+const select = document.getElementById("select")
 
 navig.addEventListener("click", () => {
   fotter.scrollIntoView({
@@ -10,6 +13,67 @@ navig.addEventListener("click", () => {
     block: "center",
   })
 })
+
+const editor = CodeMirror.fromTextArea(document.getElementById("task-input"), {
+  mode: "javascript",
+  theme: "monokai",
+  lineNumbers: true,
+  autoCloseBrackets: true,
+})
+
+function changeLanguage(language) {
+  const modeMap = {
+    javascript: "javascript",
+    python: "python",
+    htmlmixed: "htmlmixed",
+    css: "css",
+    php: "php",
+    java: "text/x-java",
+    cpp: "text/x-c++",
+    sql: "sql",
+    ruby: "ruby",
+    xml: "xml",
+  }
+  editor.setOption("mode", modeMap[language])
+}
+
+textarea2.addEventListener("keydown", (e) => {
+  if (e.key === "Tab") {
+    e.preventDefault()
+    const start = e.target.selectionStart
+    const end = e.target.selectionEnd
+    e.target.value =
+      e.target.value.substring(0, start) + "  " + e.target.value.substring(end)
+    e.target.selectionStart = e.target.selectionEnd = start + 2
+  }
+})
+
+textarea1.addEventListener("input", () => {
+  setTimeout(() => {
+    localStorage.setItem("promt", textarea1.value)
+  }, 500)
+})
+
+textarea2.addEventListener("input", () => {
+  setTimeout(() => {
+    localStorage.setItem("code", textarea2.value)
+  }, 500)
+})
+
+select.addEventListener("change", () => {
+  localStorage.setItem("selectedLanguage", select.value)
+})
+
+window.addEventListener("load", () => {
+  const savedPrompt = localStorage.getItem("promt")
+  const savedCode = localStorage.getItem("code")
+  const savedLanguage = localStorage.getItem("selectedLanguage")
+
+  savedPrompt ? (textarea1.value = savedPrompt) : null
+  savedCode ? (textarea2.value = savedCode) : null
+  savedLanguage ? select.value & changeLanguage(savedLanguage) : null
+})
+
 
 document
   .querySelector(".task__footer-div-list")
